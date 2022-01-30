@@ -8,11 +8,19 @@ class ReminderList extends StatelessWidget {
   @override
 
 
-
+  // final List<Person> _reminders = [Person(
+  //   id: 'P1',
+  //   name: 'KiLee Farestrand',
+  //   numberOfReminders: 9,
+  //   birthDate: DateTime(1944, 08, 3),
+  //   anniversaryDate: DateTime(1994, 10, 30),
+  //   annivesaryType: 'Married'),
+  // ];
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(children: reminders.map((person) {
+      height: 350,
+      child: ListView(children: reminders.map((person) {
         return Container(
           margin: EdgeInsets.symmetric(vertical: 3),
           padding: EdgeInsets.all(2),
@@ -32,7 +40,7 @@ class ReminderList extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(person.name, style: TextStyle(fontSize: 20),),
+                        Text(person.name, style: TextStyle(fontSize: 19),),
                         Text(person.FormattedReminderCount),
                       ],
                     ),
@@ -46,7 +54,7 @@ class ReminderList extends StatelessWidget {
                         Text('BirthDate')
                       ],
                     ),
-                    width: MediaQuery.of(context).size.width * .30,
+                    width: MediaQuery.of(context).size.width * .25,
                   ),
                   SizedBox(
                     child: Column(
@@ -56,7 +64,7 @@ class ReminderList extends StatelessWidget {
                         Text(person.formattedBirthDate),
                       ],
                     ),
-                    width: MediaQuery.of(context).size.width * .20,
+                    width: MediaQuery.of(context).size.width * .15,
                   )
                 ],)
               ],),

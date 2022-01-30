@@ -23,16 +23,12 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Random Reminder'),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: UserTransactions(),
-          // child: Column(
-          //   children: [
-          //     NewReminder(),
-          //     ReminderList(),
-          //   ],
-          // ),
+      body: Container(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: UserTransactions(),
+          ),
         ),
       )
     );
