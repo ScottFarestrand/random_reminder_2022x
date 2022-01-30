@@ -8,6 +8,8 @@ class NewReminder extends StatelessWidget {
   final inputTypeOfAnnivesaryController = TextEditingController(text: 'Type');
   final inputNumberOfRemindersController = TextEditingController(text: '9');
   NewReminder(this.addNewReminder);
+
+
   @override
   Widget build(BuildContext context) {
 

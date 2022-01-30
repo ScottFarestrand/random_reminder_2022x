@@ -20,58 +20,49 @@ class ReminderList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 350,
-      child: ListView(children: reminders.map((person) {
-        return Container(
-          margin: EdgeInsets.symmetric(vertical: 3),
-          padding: EdgeInsets.all(2),
-          decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.blue,
-                width: 2,
-              )
-          ),
-          child: SizedBox(
-            height: 60,
-            child: Card(
-              elevation: 0,
-              child: Row(children: [
-                Row(children: [
-                  SizedBox(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(person.name, style: TextStyle(fontSize: 19),),
-                        Text(person.FormattedReminderCount),
-                      ],
-                    ),
+      child: ListView.builder(itemCount: reminders.length,
+      itemBuilder: (context, index ){
+        return SizedBox(
+          height: 60,
+          child: Card(
+            elevation: 0,
+            child: Row(children: [
+              Row(children: [
+                SizedBox(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(reminders[index].name, style: TextStyle(fontSize: 19),),
+                      Text(reminders[index].FormattedReminderCount),
+                    ],
                   ),
-                  // SizedBox(child: Text(person.name), width: MediaQuery.of(context).size.width * .30),
-                  SizedBox(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(person.annivesaryType),
-                        Text('BirthDate')
-                      ],
-                    ),
-                    width: MediaQuery.of(context).size.width * .25,
+                ),
+                SizedBox(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(reminders[index].annivesaryType),
+                      Text('BirthDate')
+                    ],
                   ),
-                  SizedBox(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(person.formattedAnniversaryDate),
-                        Text(person.formattedBirthDate),
-                      ],
-                    ),
-                    width: MediaQuery.of(context).size.width * .15,
-                  )
-                ],)
-              ],),
-            ),
+                  width: MediaQuery.of(context).size.width * .25,
+                ),
+                SizedBox(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(reminders[index].formattedAnniversaryDate),
+                      Text(reminders[index].formattedBirthDate),
+                    ],
+                  ),
+                  width: MediaQuery.of(context).size.width * .25,
+                ),
+              ],)
+            ],),
           ),
         );
-      }).toList(),),);
+      }),
+    );
   }
 }
 
