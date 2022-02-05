@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
 
-class NewReminder extends StatelessWidget {
+class NewReminder extends StatefulWidget {
   final Function addNewReminder;
-  final inputNameController = TextEditingController(text: "Test 1");
-  final inputBirthDateController = TextEditingController(text: '01/01/2001');
-  final inputAnniversaryDateController = TextEditingController(text: '02/02/2002');
-  final inputTypeOfAnnivesaryController = TextEditingController(text: 'Type');
-  final inputNumberOfRemindersController = TextEditingController(text: '9');
+
   NewReminder(this.addNewReminder);
+
+  @override
+  State<NewReminder> createState() => _NewReminderState();
+}
+
+class _NewReminderState extends State<NewReminder> {
+  final inputNameController = TextEditingController();
+
+  final inputBirthDateController = TextEditingController(text: '01/01/2001');
+
+  final inputAnniversaryDateController = TextEditingController(text: '02/02/2002');
+
+  final inputTypeOfAnnivesaryController = TextEditingController(text: 'Type');
+
+  final inputNumberOfRemindersController = TextEditingController(text: '9');
+
   DateTime currentDate = DateTime.now();
 
   // Future<void> _selectDate(BuildContext context) async {
-  //   final DateTime? pickedDate = await showDatePicker(
-  //       context: context,
-  //       initialDate: currentDate,
-  //       firstDate: DateTime(2015),
-  //       lastDate: DateTime(2050));
-  //   if (pickedDate != null && pickedDate != currentDate)
-  //   {
-  //       currentDate = pickedDate;
-  //     };
-  // }
-
   @override
   Widget build(BuildContext context) {
 
@@ -37,44 +38,34 @@ class NewReminder extends StatelessWidget {
             TextField(
               decoration: InputDecoration(labelText: 'Name'),
               controller: inputNameController,
+              // onChanged: (value){
+              //   print(value);
+              //   inputName = value;
+              //   inputNameController.text = value;
+              // },
             ),
-            // TextField(
-            //   decoration: InputDecoration(labelText: 'BirthDate'),
-            //   keyboardType: TextInputType.datetime,
-            //   controller: inputBirthDateController,
-            // ),
+            TextField(
+              decoration: InputDecoration(labelText: 'BirthDate'),
+              keyboardType: TextInputType.datetime,
+              controller: inputBirthDateController,
+            ),
             TextField(
               decoration: InputDecoration(labelText: 'Type of anniversary'),
               controller: inputTypeOfAnnivesaryController,
             ),
-            // TextField(
-            //   decoration: InputDecoration(labelText: 'Anniversary Date'),
-            //   keyboardType: TextInputType.datetime,
-            //   controller: inputAnniversaryDateController,
-            // ),
-            // TextField(
-            //   decoration: InputDecoration(labelText: '# of Random Reminders'),
-            //   keyboardType: TextInputType.number,
-            //   controller: inputNumberOfRemindersController,
-            // ),
+            TextField(
+              decoration: InputDecoration(labelText: 'Anniversary Date'),
+              keyboardType: TextInputType.datetime,
+              controller: inputAnniversaryDateController,
+            ),
+            TextField(
+              decoration: InputDecoration(labelText: '# of Random Reminders'),
+              keyboardType: TextInputType.number,
+              controller: inputNumberOfRemindersController,
+            ),
             ElevatedButton(
               onPressed: () {
-                // print(inputBirthDateController.text);
-                // String xx  = inputBirthDateController.text + ' 00:00:00.000000';
-                // print(xx);
-                // xx = inputBirthDateController.text.substring(6,10) + '-' +
-                //      inputBirthDateController.text.substring(0,2) + '-' +
-                //      inputBirthDateController.text.substring(3,5);
-                // DateTime bd = DateTime.parse(xx);
-                // print(bd);
-                // xx = inputAnniversaryDateController.text.substring(6,10) + '-' +
-                //      inputAnniversaryDateController.text.substring(0,2) + '-' +
-                //      inputAnniversaryDateController.text.substring(3,5);
-                // DateTime ad = DateTime.parse(xx);
-                // print(ad);
-
-
-                addNewReminder(
+                widget.addNewReminder(
                   inputNameController.text,
                   9,
                   // int.parse(inputNumberOfRemindersController.text),

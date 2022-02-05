@@ -10,7 +10,7 @@ class ReminderList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
+      // height: 300,
       child: ListView.builder(itemCount: reminders.length,
       itemBuilder: (context, index ){
         return SizedBox(
