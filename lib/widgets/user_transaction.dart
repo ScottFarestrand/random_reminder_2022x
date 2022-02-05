@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'new_reminder.dart';
 import 'reminder_list.dart';
 import '../models/person.dart';
+// import 'new_reminder_form.dart';
 
 class UserTransactions extends StatefulWidget {
 
@@ -46,6 +47,7 @@ class _UserTransactionsState extends State<UserTransactions> {
   Widget build(BuildContext context) {
     return Column(children: [
       NewReminder(_addNewPerson),
+      // NewReminderForm(),
       ReminderList(_reminders),
     ],);
   }

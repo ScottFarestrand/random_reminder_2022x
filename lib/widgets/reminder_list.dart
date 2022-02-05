@@ -7,19 +7,10 @@ class ReminderList extends StatelessWidget {
 
   @override
 
-
-  // final List<Person> _reminders = [Person(
-  //   id: 'P1',
-  //   name: 'KiLee Farestrand',
-  //   numberOfReminders: 9,
-  //   birthDate: DateTime(1944, 08, 3),
-  //   anniversaryDate: DateTime(1994, 10, 30),
-  //   annivesaryType: 'Married'),
-  // ];
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 350,
+      height: 300,
       child: ListView.builder(itemCount: reminders.length,
       itemBuilder: (context, index ){
         return SizedBox(

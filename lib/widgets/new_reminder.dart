@@ -8,7 +8,19 @@ class NewReminder extends StatelessWidget {
   final inputTypeOfAnnivesaryController = TextEditingController(text: 'Type');
   final inputNumberOfRemindersController = TextEditingController(text: '9');
   NewReminder(this.addNewReminder);
+  DateTime currentDate = DateTime.now();
 
+  // Future<void> _selectDate(BuildContext context) async {
+  //   final DateTime? pickedDate = await showDatePicker(
+  //       context: context,
+  //       initialDate: currentDate,
+  //       firstDate: DateTime(2015),
+  //       lastDate: DateTime(2050));
+  //   if (pickedDate != null && pickedDate != currentDate)
+  //   {
+  //       currentDate = pickedDate;
+  //     };
+  // }
 
   @override
   Widget build(BuildContext context) {
