@@ -3,7 +3,7 @@ import '../models/person.dart';
 
 class ReminderList extends StatelessWidget {
   final List<Person> reminders;
-  ReminderList(this.reminders);
+  const ReminderList(this.reminders);
 
   @override
 
@@ -14,7 +14,7 @@ class ReminderList extends StatelessWidget {
       child: ListView.builder(itemCount: reminders.length,
       itemBuilder: (context, index ){
         return SizedBox(
-          height: 60,
+          height: 70,
           child: Card(
             elevation: 0,
             child: Row(children: [
@@ -23,8 +23,8 @@ class ReminderList extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(reminders[index].name, style: TextStyle(fontSize: 19),),
-                      Text(reminders[index].FormattedReminderCount),
+                      Text(reminders[index].firstName, style: const TextStyle(fontSize: 19),),
+                      Text(reminders[index].formattedReminderCount),
                     ],
                   ),
                 ),
@@ -33,7 +33,7 @@ class ReminderList extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(reminders[index].annivesaryType),
-                      Text('BirthDate')
+                      const Text('BirthDate')
                     ],
                   ),
                   width: MediaQuery.of(context).size.width * .25,

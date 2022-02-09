@@ -1,7 +1,8 @@
 import 'package:intl/intl.dart';
 class Person {
   final String id;
-  final String name;
+  final String firstName;
+  final String lastName;
   final int numberOfReminders;
   final DateTime birthDate;
   final DateTime anniversaryDate;
@@ -14,7 +15,8 @@ class Person {
   Person(
       {
         required this.id,
-        required this.name,
+        required this.firstName,
+        required this.lastName,
         required this.numberOfReminders,
         required this.birthDate,
         required this.anniversaryDate,
@@ -40,7 +42,7 @@ class Person {
     return formatter.format(birthDate) + 'th';
   }
 
-  String get FormattedReminderCount{
+  String get formattedReminderCount{
     return 'Random Reminders: ' + numberOfReminders.toString();
 }
 

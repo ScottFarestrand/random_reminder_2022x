@@ -1,18 +1,29 @@
 import 'package:flutter/material.dart';
 import './widgets/reminder_list.dart';
-import './widgets/new_reminder.dart';
 import './models/person.dart';
+import './pages/new_person.dart';
 
 // import './widgets/new_reminder.dart';
+
+import 'package:flutter/cupertino.dart';
+
+
 
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
+      // debugShowCheckedModeBanner: false,
       title: 'Random Reminder',
+      initialRoute: '/',
+      routes: {
+           '/newperson': (context) =>  NewPerson(),
+      },
       home: MyHomePage(),
     );
   }
@@ -26,7 +37,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final List<Person> _reminders = [Person(
       id: 'P1',
-      name: 'Fred Farestrand',
+      firstName: 'Fred',
+      lastName: 'Farestrand',
       numberOfReminders: 9,
       birthDate: DateTime(1944, 08, 3),
       anniversaryDate: DateTime(1994, 10, 30),
@@ -34,16 +46,17 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
 
   void _addNewPerson(
-      String name,
+      String firstName,
+      String lastName,
       int numberOfReminders,
       DateTime birthDate,
       DateTime anniversaryDate,
       String anniversaryType,
       ){
-    print("Entered");
     final newPerson = Person(
         id: DateTime.now().toString(),
-        name: name,
+        firstName: firstName,
+        lastName:  lastName,
         numberOfReminders: numberOfReminders,
         birthDate: birthDate,
         anniversaryDate: anniversaryDate,
@@ -55,24 +68,19 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
 
-  void showInputArea(BuildContext context) {
-    showModalBottomSheet(
-        context: context,
-        builder: (buildContext) {
-          return NewReminder(_addNewPerson);
-            // return Text('Text');
-        },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Random Reminder'),
         actions: [IconButton(
-            onPressed: () => showInputArea(context),
-            icon: Icon(
+          onPressed: () {
+            print("pushing");
+            Navigator.pushNamed(context, '/newperson');
+          },
+            // onPressed: () => showInputArea(context),
+            icon: const Icon(
                 Icons.add,
                 color: Colors.black,
             ),
@@ -87,12 +95,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        tooltip: 'Add New Reminder',
-        onPressed: () => showInputArea(context),
-        ),
     );
   }
 }
