@@ -11,7 +11,17 @@ class ReminderList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // height: 300,
-      child: ListView.builder(itemCount: reminders.length,
+      child: reminders.isEmpty ? Column(
+        children: [
+          Text('No Reminders yet!', style: Theme.of(context).textTheme.headline4,),
+          SizedBox(height: 20,),
+          Container(
+            height: 150,
+              child: Image.asset('assets/images/waiting.png',
+                fit: BoxFit.cover,),
+          ),
+        ],
+      ) :  ListView.builder(itemCount: reminders.length,
       itemBuilder: (context, index ){
         return SizedBox(
           height: 70,

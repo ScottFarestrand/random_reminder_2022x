@@ -2,12 +2,7 @@ import 'package:flutter/material.dart';
 import './widgets/reminder_list.dart';
 import './models/person.dart';
 import './pages/new_person.dart';
-
-// import './widgets/new_reminder.dart';
-
 import 'package:flutter/cupertino.dart';
-
-
 
 
 void main() => runApp(MyApp());
@@ -18,8 +13,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      // debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       title: 'Random Reminder',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        fontFamily: 'Quicksand',
+        appBarTheme: AppBarTheme(
+          titleTextStyle: TextStyle(
+            fontFamily: 'OpenSans',
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
       initialRoute: '/',
       routes: {
            '/newperson': (context) =>  NewPerson(),
@@ -35,14 +41,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Person> _reminders = [Person(
-      id: 'P1',
-      firstName: 'Fred',
-      lastName: 'Farestrand',
-      numberOfReminders: 9,
-      birthDate: DateTime(1944, 08, 3),
-      anniversaryDate: DateTime(1994, 10, 30),
-      annivesaryType: 'Married'),
+  final List<Person> _reminders = [
+    // Person(
+    //   id: 'P1',
+    //   firstName: 'Fred',
+    //   lastName: 'Farestrand',
+    //   numberOfReminders: 9,
+    //   birthDate: DateTime(1944, 08, 3),
+    //   anniversaryDate: DateTime(1994, 10, 30),
+    //   annivesaryType: 'Married'),
   ];
 
   void _addNewPerson(

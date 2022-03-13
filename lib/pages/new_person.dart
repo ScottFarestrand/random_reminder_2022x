@@ -37,14 +37,34 @@ class _NewPersonState extends State<NewPerson> {
           buildNameRow(context),
           buildBirthDateRow(context),
           buildAnniversaryDateColumn(context),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(
-              onPressed: (){
-                Navigator.of(context).pop();
-              },
-              child: const Text("Add Reminder"),
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width / 4,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    onPressed: (){
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text(" Save "),
+                  ),
+                ),
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width / 4,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    onPressed: (){
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text("Cancel"),
+                  ),
+                ),
+              ),
+            ],
           ),
         ],),
       ),
